@@ -72,7 +72,7 @@ function setup() {
   //   </svg>
   // `);
 
-  //permissionButton = document.querySelector('.permission-button');
+  permissionButton = document.querySelector('.permission-button');
   startText = document.querySelector('.start-text');
   // permissionButton.size(100, 100); // set fixed width and height
   // permissionButton.position(width / 2 - 50, height / 1.2 - 50); // center it
@@ -93,58 +93,29 @@ function setup() {
   // permissionButton.style('line-height', '60px'); // matches height to vertically center text
 
   // permissionButton.mousePressed(startSketch);
-//   document.querySelector('.permission-button').addEventListener('click', () => {
-//   if (typeof DeviceMotionEvent !== 'undefined' &&
-//       typeof DeviceMotionEvent.requestPermission === 'function') {
-//     DeviceMotionEvent.requestPermission()
-//       .then(response => {
-//         if (response === 'granted') {
-//           started = true;
-//           permissionButton.style.visibility = 'hidden';
-//           startText.style.visibility = 'hidden';
-//           window.addEventListener('deviceorientation', handleOrientation);
-//         } else {
-//           alert('Permission denied for motion input.');
-//         }
-//       })
-//       .catch(console.error);
-//   } else {
-//     // No permission needed, just start
-//     started = true;
-//     permissionButton.style.visibility = 'hidden';
-//     startText.style.visibility = 'hidden';
-//     window.addEventListener('deviceorientation', handleOrientation);
-//   }
-// });
-
-  window.addEventListener('touchstart', () => mousePressed());
-  document.querySelector('.invisible-trigger').addEventListener('click', () => mousePressed());
-  document.querySelector('.invisible-trigger').addEventListener('touchstart', () => mousePressed());
-}
-
-function mousePressed() {
+  document.querySelector('.permission-button').addEventListener('click', () => {
   if (typeof DeviceMotionEvent !== 'undefined' &&
       typeof DeviceMotionEvent.requestPermission === 'function') {
     DeviceMotionEvent.requestPermission()
       .then(response => {
         if (response === 'granted') {
           started = true;
-          permissionButton.hide();
+          permissionButton.style.visibility = 'hidden';
           startText.style.visibility = 'hidden';
           window.addEventListener('deviceorientation', handleOrientation);
         } else {
           alert('Permission denied for motion input.');
-          startText.style.visibility = 'hidden';
         }
       })
       .catch(console.error);
   } else {
     // No permission needed, just start
     started = true;
-    //permissionButton.hide();
+    permissionButton.style.visibility = 'hidden';
     startText.style.visibility = 'hidden';
     window.addEventListener('deviceorientation', handleOrientation);
   }
+});
 }
 
 function startSketch() {
