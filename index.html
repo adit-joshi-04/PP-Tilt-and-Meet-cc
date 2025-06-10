@@ -24,13 +24,17 @@
         
         <!-- Countdown timer will appear here -->
         <div class="launching" id="countdown">
-          T- 00:00:00:00
+          00 DAYS TO GO!
         </div>
       </div>
     </div>
 
-    <div class="start-text" style="text-align: center; line-height: 1.5rem;">CLICK ANYWHERE TO PLAY!<br><b><i>TILT TO MAKE TWO MEET</i></b></div>
+    <div class="start-text" style="text-align: center;">
+      
+      CLICK ANYWHERE TO PLAY!
+      <b><i>TILT TO MAKE TWO MEET</i></b>
 
+    </div>
     <!-- <div class="permission-button">
       <svg width="72" height="72" viewBox="0 0 100 100">
         <polygon points="35,25 75,50 35,75" 
@@ -54,7 +58,7 @@
 
         if (timeDifference < 0) {
           // If the countdown is over, show zeros
-          document.getElementById("countdown").innerText = "T– 00:00:00:00";
+          document.getElementById("countdown").innerText = "00 DAYS TO GO!";
           return;
         }
 
@@ -72,7 +76,7 @@
 
         // Update the countdown display
         document.getElementById("countdown").innerText = 
-          `T- ${formattedDays}:${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+          `${formattedDays} DAYS TO GO!`;
       }
 
       setInterval(updateCountdown, 1000);
