@@ -118,6 +118,8 @@ function setup() {
 // });
 
   window.addEventListener('touchstart', () => mousePressed());
+  document.querySelector('.invisible-trigger').addEventListener('click', () => mousePressed());
+  document.querySelector('.invisible-trigger').addEventListener('touchstart', () => mousePressed());
 }
 
 function mousePressed() {
