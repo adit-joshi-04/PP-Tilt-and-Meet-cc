@@ -116,6 +116,8 @@ function setup() {
 //     window.addEventListener('deviceorientation', handleOrientation);
 //   }
 // });
+
+  window.addEventListener('touchstart', () => mousePressed());
 }
 
 function mousePressed() {
